@@ -1,0 +1,21 @@
+.advancedOptions {
+    margin-top:10px;
+    margin-bottom:10px;
+    color:gray;
+    text-decoration: underline;
+    cursor: pointer;
+    user-select: none;
+}
+
+.answer {
+    font-family:sans-serif;
+}
+
+.my-checkbox {
+    margin-right:10px;
+    margin-left:10px;
+}
+
+.my-mintemp {
+    width:350px;
+}

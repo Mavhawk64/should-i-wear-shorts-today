@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row" id="topSection">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1>Should I Wear Shorts Today?</h1>
+            <form [formGroup]="blankOptions" (ngSubmit)="determineConditionsBlank()">
+                <button type="submit" class="btn btn-success btn-md" value="Find Out!"
+                    onclick="document.getElementById('answer').hidden = false;document.getElementById('advancedOptions').hidden = false;document.getElementById('thisButton').hidden = true;"
+                    id="thisButton">Find Out!</button>
+            </form>
+
+            <h2 class="answer" id="answer" [ngStyle]="applyStyles()" hidden="true">{{this.theResponse}}</h2>
+            <p class="advancedOptions" id="advancedOptions" hidden="true"
+                onclick="document.getElementById('mySearch').hidden = !document.getElementById('mySearch').hidden">Not
+                Satisfied? Try Our Advanced Options</p>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row" id="mySearch" hidden="true">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h3 class="text-left my-4">Additional Options:</h3>
+            <form [formGroup]="additionalOptions" (ngSubmit)="determineConditionsFilled(additionalOptions.value)">
+                <div class="form-group">
+                    <label class="form-label">
+                        <input class="my-checkbox" formControlName="factorConditions" type="checkbox"
+                            id="factorConditions" value="">Factor Conditions? (i.e. Rain, Snow, etc.)
+                    </label><br />
+                    <label class="form-label">
+                        <input class="my-checkbox" type="checkbox"
+                            onclick="document.getElementById('minTemp').disabled = !document.getElementById('minTemp').disabled;document.getElementById('minTemp').value='Set Minimum Temperature?';document.getElementById('celsius').disabled = !document.getElementById('celsius').disabled;document.getElementById('celsius').checked=false;"
+                            checked="true">
+                        <input class="my-mintemp" formControlName="minTemperature" type="text" id="minTemp"
+                            placeholder="Set Minimum Temperature?" value="60"
+                            onclick="document.getElementById('minTemp').value='';">
+                        <input type="checkbox" formControlName="isCentigrade" class="my-checkbox" id="celsius">ºC
+                    </label><br />
+                    <label class="form-label">
+                        <button type="submit" class="btn btn-success btn-md">Submit!</button>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <!-- Potentially Lookup Weather -->
+        <!-- <div class="col-md-6">
+            <h3 class="text-center my-4">Search for Weather:</h3>
+            <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPIXU(weatherSearchForm.value)">
+                <div class="form-group">
+                    <input class="form-control" type="text" id="weatherLocation" aria-describedby="weatherLocation"
+                        placeholder="Please input a Location" formControlName="location" value="{{this.weatherDataUS?.location.region}}" />
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success btn-md">
+                        Search for the weather
+                    </button>
+                </div>
+            </form>
+        </div> -->
+        <!-- <div class="col-md-6">
+            <h3 class="text-center my-4">Weather Details:</h3>
+            <p class="text-center">
+                Current weather conditions: {{ this.weatherData?.current.weather_descriptions
+        }}
+            </p>
+            <p class="text-center">
+                Temperature in Degrees Celsius: {{ this.weatherData?.current.temperature }}
+            </p>
+            <p class="text-center">
+                Temperature in Degrees Farenheit: {{ this.weatherDataUS?.current.temperature }}
+            </p>
+            <p class="text-center">
+                Feels like in Degrees Celsius: {{ this.weatherData?.current.feelslike
+        }}
+            </p>
+            <p class="text-center">
+                Feels like in Degrees Farenheit: {{
+        this.weatherDataUS?.current.feelslike }}
+            </p>
+            <p class="text-center">
+                Location Searched: {{ this.weatherData?.location.name }}, {{
+        this.weatherData?.location.country }}.
+            </p>
+        </div> -->
+    </div>
+</div>
