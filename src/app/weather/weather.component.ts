@@ -161,14 +161,14 @@ export class WeatherComponent implements OnInit {
   }
 
   sendToAPIXUService() {
-    this.apixuService.getWeather('')[1].subscribe(data => { this.weatherDataUS = data; });
-    this.apixuService.getWeather('')[0].subscribe(data => { this.weatherData = data; });
+    this.apixuService.getWeather('')[1].subscribe(data => { this.weatherDataUS = data; console.log(this.weatherDataUS); });
+    this.apixuService.getWeather('')[0].subscribe(data => { this.weatherData = data; console.log(this.weatherData); });
 
     //TESTING ONLY
     //this.weatherDataUS = this.sampleUS;
     //this.weatherData = this.sample;
-    // console.log(this.weatherDataUS);
-    // console.log(this.weatherData);
+    console.log(this.weatherDataUS);
+    console.log(this.weatherData);
     
   }
 
