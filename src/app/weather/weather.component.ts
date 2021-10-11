@@ -174,7 +174,7 @@ export class WeatherComponent implements OnInit {
 
  determineConditionsBlank() {    
    for (let i in this.weatherDataUS?.forecast) {
-     this.theResponse = this.weatherDataUS?.forecast[i].avgtemp == undefined ? "" : this.weatherDataUS?.forecast[i].avgtemp > 60 ? "Yes!" : "No!";
+     this.theResponse = this.weatherDataUS?.forecast[i].avgtemp == undefined ? "" : this.weatherDataUS?.forecast[i].avgtemp > 65 ? "Yes!" : "No!";
      break;
    }
     // console.log(this.theResponse);
@@ -182,14 +182,14 @@ export class WeatherComponent implements OnInit {
 
   determineConditionsFilled(params: any) {
     var factConds = params.factorConditions == undefined || params.factorConditions === "" ? false : params.factorConditions;
-    var minTemp: number = params.minTemperature == undefined || +params.minTemperature + "" === "NaN" || params.minTemperature === "" ? 60 : +params.minTemperature;
+    var minTemp: number = params.minTemperature == undefined || +params.minTemperature + "" === "NaN" || params.minTemperature === "" ? 65 : +params.minTemperature;
     var centigrade = params.isCentigrade == undefined || params.isCentigrade === "" ? false : params.isCentigrade;
     // console.log(factConds + " " + minTemp + " " + centigrade);
     // console.log(params);
     if(minTemp == undefined) {
-      minTemp = 60;
+      minTemp = 65;
       if(centigrade) {
-        minTemp = (60-32) * 5.0 / 9.0;
+        minTemp = (65-32) * 5.0 / 9.0;
       }
     }
     if(centigrade) {
