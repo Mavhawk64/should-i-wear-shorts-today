@@ -32,12 +32,12 @@
                             onclick="document.getElementById('minTemp').disabled = !document.getElementById('minTemp').disabled;document.getElementById('minTemp').value='Set Minimum Temperature?';document.getElementById('celsius').disabled = !document.getElementById('celsius').disabled;document.getElementById('celsius').checked=false;"
                             checked="true">
                         <input class="my-mintemp" formControlName="minTemperature" type="text" id="minTemp"
-                            placeholder="Set Minimum Temperature?" value="60"
+                            placeholder="Set Minimum Temperature?" value="65"
                             onclick="document.getElementById('minTemp').value='';">
                         <input type="checkbox" formControlName="isCentigrade" class="my-checkbox" id="celsius">ºC
-                    </label><br />
+                    </label><br/>
                     <label class="form-label">
-                        <button type="submit" class="btn btn-success btn-md">Submit!</button>
+                        <button type="submit" class="btn btn-success btn-md" onclick="document.getElementById('minTemp').value='65';">Submit!</button>
                     </label>
                 </div>
             </form>
